@@ -3,9 +3,11 @@ import React from "react";
 function Header() {
 
     return(
-<div>
+
+    <header className="top-header">
       <h1>Resturant Task List</h1>
-    </div>
+    </header>
+    
 
     );
 }
