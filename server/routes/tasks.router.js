@@ -30,5 +30,16 @@ router.post('/', (req, res) => {
 // PUT
 
 // DELETE
+router.delete('/:id', (req,res) => {
+    console.log(req.params);
+    const deleteIndex = Number(req.params.id);
+    let queryText = 'DELETE FROM "tasks" where "id" = $1';
+    pool.query(queryText, [deleteIndex]).then((result) => {
+        res.sendStatus(200);
+    }).catch((error) => {
+        console.log('error in delete');
+        res.sendStatus(500);
+    })
+});
 
 module.exports = router;
