@@ -31,6 +31,6 @@ function TasksForm({tasksToDo, setTasksToDo, tasksdueBy, setTasksDueBy, fetchTas
         
         </>
     )
-}
+};
 
 export default TasksForm;

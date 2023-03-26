@@ -4,14 +4,17 @@ const pool = require('../modules/pool.js');
 
 // GET
 router.get('/', (req, res) => {
-    let queryText = 'SELECT * from tasks ORDER BY complete, task;';
+    console.log( 'GET request made for /chores' );
+    let queryText = 'SELECT * FROM chores;';
+
     pool.query(queryText).then((result) => {
         res.send(result.rows);
-        }).catch((error) => {
-            console.log(`Error in GET ${error}`);
-            alert('something is wrong with GET');
-        })
+    }).catch((error) => {
+        console.log( `Error in GET ${error}` );
+        alert(`Something went wrong.`);
+    })
 });
+
 
 // POST
 router.post('/', (req, res) => {
