@@ -4,11 +4,11 @@ function Task ({task, fetchTasksList}) {
 
    const removeTaskItem = (event) => { 
     console.log(`removeTaskItem ${task.id}`);
-    axios.delete(`/tasks/${task.id}`).then((Response) => {
+    axios.delete(`/tasks/${task.id}`).then((response) => {
         fetchTasksList();
     }).catch((error) => {
         console.log(`error in remove task ${error}`);
-        alert( 'somrthing went wrong');
+        alert( 'something went wrong');
     })
 
 }
@@ -24,7 +24,20 @@ function Task ({task, fetchTasksList}) {
 
    
     return(
-        <></>
+        <div className="contentDiv">
+            <div className="listTask" key={task.id}>
+                <br />
+                {task.task}
+                <br />
+                {task.due}
+                <br />
+                <br />
+                <button className="complete-button" onClick={ (event) => completeTask(event) }>{task.complete}</button>
+                <button className="remove-button" onClick={ (event) => removeTaskItem(event) }>Remove</button>
+
+            </div>
+
+        </div>
     
     )
 }
