@@ -1,7 +1,7 @@
-import react, {useState, useEffect} from "react";
+import React, {useState, useEffect} from "react";
 import axios from 'axios';
-import TaskForm from "../TaskForm/TaskForm";
-import TaskItem from "../TaskItem/TaskItem";
+import TaskForm from "../TaskForm/TaskForm.jsx";
+import TaskItem from "../TaskItem/TaskItem.jsx";
 
 function ListOfTasks() {
     let [tasksToDo, setTasksToDo] = useState ('');
