@@ -1,10 +1,10 @@
 CREATE TABLE "chores" (
    "id" SERIAL PRIMARY KEY,
    "task" VARCHAR(200) NOT NULL,
-   "due" VARCHAR(50) NOT NULL
+   "finished" VARCHAR(50) DEFAULT 'NO'
 );   
 
-INSERT INTO "chores" ("task","due")
-   VALUES ('clean the grill', 'End of shift'),
-          ('clean bathrooms', 'End of shift'),
-          ('sweep and mop floors', 'End of day');
+INSERT INTO "chores" ("task")
+   VALUES ('clean the grill'),
+          ('clean bathrooms'),
+          ('sweep and mop floors');

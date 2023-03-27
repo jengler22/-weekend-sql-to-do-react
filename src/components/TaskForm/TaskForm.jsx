@@ -1,16 +1,16 @@
 import React, {useState, useEffect} from "react";
 import axios from 'axios';
-function TasksForm({tasksToDo, setTasksToDo, tasksdueBy, setTasksDueBy, fetchTasksList}) {
+function TasksForm({tasksToDo, setTasksToDo, taskFinished, setTaskFinished, fetchTasksList}) {
 
     const createTask = (event) => {
         event.preventDefault();
 
         axios.post('/tasks', {
             task: tasksToDo,
-            due: tasksdueBy,
+            finished: taskFinished,
         }).then((response) => {
             setTasksToDo('');
-            setTasksDueBy('');
+            setTaskFinished('');
             fetchTasksList();
         }).catch((error) => {
             console.log(`error in POST ${error}`);
@@ -24,7 +24,7 @@ function TasksForm({tasksToDo, setTasksToDo, tasksdueBy, setTasksDueBy, fetchTas
             <h2>Create Task</h2>
             Task <input type="Text" onChange={e => setTasksToDo(e.target.value)} />
             <br />
-            Due <input type="Text" onChange={e => setTasksDueBy(e.target.value)} />
+            Due <input type="Text" onChange={e => setTaskFinished(e.target.value)} />
             <br />
             <button>Add Task</button>
         </form>
