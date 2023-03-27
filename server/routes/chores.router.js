@@ -18,14 +18,15 @@ router.get('/', (req, res) => {
 
 // POST
 router.post('/', (req, res) => {
-    console.log(`post`, req.body);
-    let queryText = `Insert Into tasks ("task", "due") Values ($1, $2);`;
-    pool.query(queryText, [req.body.task, req.body.due])
+    console.log('POST request');
+    let tasksToAdd = req.body;
+    let queryText = `Insert Into chores ("task", "finished") VALUES ($1, $2);`
+    pool.query(queryText, [tasksToAdd.task, tasksToAdd.finished])
       .then((result) => {
         res.sendStatus(200);
     }).catch((error) => {
         console.log(`Error in POST ${error}`);
-        res.sendStatus(550);
+        res.sendStatus(500);
     })
 });
     

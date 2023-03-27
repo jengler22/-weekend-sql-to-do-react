@@ -1,15 +1,15 @@
 import react, {useState, useEffect} from "react";
 import axios from 'axios';
 import TaskForm from "../TaskForm/TaskForm";
-import Task from "../TaskItem/TaskItem";
+import TaskItem from "../TaskItem/TaskItem";
 
 function ListOfTasks() {
     let [tasksToDo, setTasksToDo] = useState ('');
-    let [tasksDueBy, setTasksDueBy] = useState ('');
+    let [tasksFinished, setTasksFinished] = useState ('');
     let [tasksArray, setTasksArray] = useState ([]);
 
     const fetchTasksList = () => {
-        axios.get('/tasks').then((response) => {
+        axios.get('/chores').then((response) => {
             setTasksArray(response.data);
             console.log('test', tasksArray);
         }).catch((error) => {
@@ -29,23 +29,31 @@ function ListOfTasks() {
         <TaskForm 
         tasksToDo={tasksToDo}
         setTasksToDo={setTasksToDo}
-        tasksdueBy={tasksDueBy}
-        setTasksDueBy={setTasksDueBy}  
+        tasksdueBy={tasksFinished}
+        setTasksDueBy={setTasksFinished}  
         tasksArray={tasksArray}      
         setTasksArray={setTasksArray}
         fetchTasksList={fetchTasksList}
         />
 
-        <div className="taskGrid">
+<div className="task-Table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Task</th>
+                        <th>Finished</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
             {
-                tasksArray.map((task) => (
-                    <Task 
-                      key={task.id}
-                      task={task}
-                      fetchTasksList={fetchTasksList}
-                      />
-                ))
-            }
+            tasksArray.map((task) => (
+                <TaskItem 
+                    key={task.id}
+                    task={task}
+                    fetchTaskList={fetchTasksList}
+                />
+                ))}
+            </table>
         </div>
 
         </>

@@ -43,4 +43,4 @@ function TaskItem ({task, fetchTasksList}) {
     )
 }
 
-export default Task; 
+export default TaskItem; 

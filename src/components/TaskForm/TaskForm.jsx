@@ -5,7 +5,7 @@ function TasksForm({tasksToDo, setTasksToDo, taskFinished, setTaskFinished, fetc
     const createTask = (event) => {
         event.preventDefault();
 
-        axios.post('/tasks', {
+        axios.post('/chores', {
             task: tasksToDo,
             finished: taskFinished,
         }).then((response) => {
