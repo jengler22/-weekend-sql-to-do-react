@@ -24,7 +24,6 @@ function TasksForm({tasksToDo, setTasksToDo, taskFinished, setTaskFinished, fetc
             <h2>Create Task</h2>
             Task <input type="Text" onChange={e => setTasksToDo(e.target.value)} />
             <br />
-            Due <input type="Text" onChange={e => setTaskFinished(e.target.value)} />
             <br />
             <button>Add Task</button>
         </form>

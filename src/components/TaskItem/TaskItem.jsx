@@ -1,10 +1,10 @@
 import axios from 'axios';
 
-function Task ({task, fetchTasksList}) {
+function TaskItem ({task, fetchTasksList}) {
 
    const removeTaskItem = (event) => { 
     console.log(`removeTaskItem ${task.id}`);
-    axios.delete(`/tasks/${task.id}`).then((response) => {
+    axios.delete(`/chores/${task.id}`).then((response) => {
         fetchTasksList();
     }).catch((error) => {
         console.log(`error in remove task ${error}`);
@@ -13,7 +13,7 @@ function Task ({task, fetchTasksList}) {
 
 }
    const completeTask = (event) => {
-    axios.put(`/tasks/${task.id}`).then((response) => {
+    axios.put(`/chores/${task.id}`).then((response) => {
         fetchTasksList();
     }).catch((error) => {
         console.log(`Error in PUT ${error}`);
@@ -22,22 +22,23 @@ function Task ({task, fetchTasksList}) {
 
    }
 
+   const changeColor = () => {
+    if(task.complete === 'yes') {
+        return 'green';
+    } else {
+        return
+    }
+   }
+
    
     return(
-        <div className="contentDiv">
-            <div className="listTask" key={task.id}>
-                <br />
-                {task.task}
-                <br />
-                {task.due}
-                <br />
-                <br />
-                <button className="complete-button" onClick={ (event) => completeTask(event) }>{task.complete}</button>
-                <button className="remove-button" onClick={ (event) => removeTaskItem(event) }>Remove</button>
-
-            </div>
-
-        </div>
+        <tbody key={task.id}>
+            <tr style={{ backgroundColor: changeColor() }}>
+                <td>{task.task}</td>
+                <td><button onClick={ (event) => completeTask(event) }>{task.completed}</button></td>
+                <td><button onClick={ (event) => removeTaskItem(event) }>Delete</button></td>
+            </tr>
+        </tbody>
     
     )
 }
