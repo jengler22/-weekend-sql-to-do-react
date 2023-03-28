@@ -4,12 +4,13 @@ import TaskForm from "../TaskForm/TaskForm.jsx";
 import TaskItem from "../TaskItem/TaskItem.jsx";
 import '../App/App.css';
 
-
+//Function for list of employee tasks
 function ListOfTasks() {
     let [tasksToDo, setTasksToDo] = useState ('');
     let [taskFinished, setTaskFinished] = useState ('');
     let [tasksArray, setTasksArray] = useState ([]);
 
+    // GET REQUEST
     const fetchTasksList = () => {
         axios.get('/chores').then((response) => {
             setTasksArray(response.data);
@@ -27,7 +28,9 @@ function ListOfTasks() {
 
    
     return(
+        //Import TaskForm jsx
         <>
+    
         <TaskForm 
         tasksToDo={tasksToDo}
         setTasksToDo={setTasksToDo}
@@ -38,6 +41,7 @@ function ListOfTasks() {
         fetchTasksList={fetchTasksList}
         />
 
+   {/* html for task table */}
 <div className="taskTable">
             <table>
                 <thead>
@@ -47,6 +51,7 @@ function ListOfTasks() {
                         <th>Delete</th>
                     </tr>
                 </thead>
+                <tbody>
             {
             tasksArray.map((task) => (
                 <TaskItem 
@@ -55,6 +60,7 @@ function ListOfTasks() {
                     fetchTasksList={fetchTasksList}
                 />
                 ))}
+                </tbody>
             </table>
         </div>
 

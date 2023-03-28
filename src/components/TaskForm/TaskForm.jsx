@@ -2,9 +2,11 @@ import React, {useState, useEffect} from "react";
 import axios from 'axios';
 function TaskForm({tasksToDo, setTasksToDo, taskFinished, setTaskFinished, fetchTasksList}) {
 
+// Function to create new task
     const createTask = (event) => {
         event.preventDefault();
 
+   // POST REQUEST
         axios.post('/chores', {
             task: tasksToDo,
             finished: taskFinished,
@@ -19,6 +21,7 @@ function TaskForm({tasksToDo, setTasksToDo, taskFinished, setTaskFinished, fetch
 
     }
     return(
+        // html to submot new task
         <>
         <form onSubmit={createTask}>
             <h2>Create Task</h2>

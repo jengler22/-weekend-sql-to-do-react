@@ -26,6 +26,17 @@
   justify-content: center;
 } */
 
-/* .taskTable {
+.taskTable {
+  display: flex;
   justify-content: center;
+  align-items: center;
+  
+}
+
+table {
+  width: 100%;
+}
+
+/* .taskTable  {
+  border: 2px solid gray;
 } */

@@ -2,6 +2,7 @@ import axios from 'axios';
 
 function TaskItem ({task, fetchTasksList}) {
 
+    // DELETE REQUEST
    const removeTaskItem = (event) => { 
     console.log(`removeTaskItem ${task.id}`);
     axios.delete(`/chores/${task.id}`).then((response) => {
@@ -21,26 +22,26 @@ function TaskItem ({task, fetchTasksList}) {
     })
 
    }
-
+  // function to change color when task is completed
    const changeColor = () => {
-    if(task.complete === 'yes') {
-        return 'green';
+    if(task.finished === 'yes') {
+        return 'mediumspringgreen';
     } else {
-        return
+        return;
     }
    }
 
    
     return(
-        <div className="tableOne" >
-        <tbody key={task.id}>
-            <tr style={{ backgroundColor: changeColor() }}>
+        // <div className="tableOne" >
+        // <tbody key={task.id}>
+            <tr style={{ backgroundColor: changeColor() }}> 
                 <td>{task.task}</td>
                 <td><button onClick={ (event) => completeTask(event) }>{task.completed}Finished</button></td>
                 <td><button onClick={ (event) => removeTaskItem(event) }>Delete</button></td>
             </tr>
-        </tbody>
-        </div>    
+        // </tbody>
+        // </div>    
     
     )
 }
