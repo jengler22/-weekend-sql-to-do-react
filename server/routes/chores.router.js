@@ -19,9 +19,9 @@ router.get('/', (req, res) => {
 // POST
 router.post('/', (req, res) => {
     console.log('POST request');
-    let tasksToAdd = req.body;
+    let tasksToDo = req.body;
     let queryText = `Insert Into chores ("task", "finished") VALUES ($1, $2);`
-    pool.query(queryText, [tasksToAdd.task, tasksToAdd.finished])
+    pool.query(queryText, [tasksToDo.task, tasksToDo.finished])
       .then((result) => {
         res.sendStatus(200);
     }).catch((error) => {
@@ -33,7 +33,7 @@ router.post('/', (req, res) => {
 
 // PUT
 router.put('/:id', (req, res) => {
-    console.log( `In PUT request /list` );
+    console.log( `In PUT request /chores` );
     let taskId = req.params.id;
     let queryText = 'UPDATE "chores" SET "finished" = $1 WHERE "id" = $2;';
 

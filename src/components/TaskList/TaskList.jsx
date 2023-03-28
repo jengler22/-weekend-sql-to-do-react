@@ -2,10 +2,12 @@ import React, {useState, useEffect} from "react";
 import axios from 'axios';
 import TaskForm from "../TaskForm/TaskForm.jsx";
 import TaskItem from "../TaskItem/TaskItem.jsx";
+import '../App/App.css';
+
 
 function ListOfTasks() {
     let [tasksToDo, setTasksToDo] = useState ('');
-    let [tasksFinished, setTasksFinished] = useState ('');
+    let [taskFinished, setTaskFinished] = useState ('');
     let [tasksArray, setTasksArray] = useState ([]);
 
     const fetchTasksList = () => {
@@ -29,14 +31,14 @@ function ListOfTasks() {
         <TaskForm 
         tasksToDo={tasksToDo}
         setTasksToDo={setTasksToDo}
-        tasksdueBy={tasksFinished}
-        setTasksDueBy={setTasksFinished}  
+        taskFinished={taskFinished}
+        setTaskFinished={setTaskFinished}  
         tasksArray={tasksArray}      
         setTasksArray={setTasksArray}
         fetchTasksList={fetchTasksList}
         />
 
-<div className="task-Table">
+<div className="taskTable">
             <table>
                 <thead>
                     <tr>
@@ -50,7 +52,7 @@ function ListOfTasks() {
                 <TaskItem 
                     key={task.id}
                     task={task}
-                    fetchTaskList={fetchTasksList}
+                    fetchTasksList={fetchTasksList}
                 />
                 ))}
             </table>

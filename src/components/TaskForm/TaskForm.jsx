@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import axios from 'axios';
-function TasksForm({tasksToDo, setTasksToDo, taskFinished, setTaskFinished, fetchTasksList}) {
+function TaskForm({tasksToDo, setTasksToDo, taskFinished, setTaskFinished, fetchTasksList}) {
 
     const createTask = (event) => {
         event.preventDefault();
@@ -22,14 +22,15 @@ function TasksForm({tasksToDo, setTasksToDo, taskFinished, setTaskFinished, fetc
         <>
         <form onSubmit={createTask}>
             <h2>Create Task</h2>
-            Task <input type="Text" onChange={e => setTasksToDo(e.target.value)} />
+            Task <input type="Text" value={tasksToDo} onChange={ (e) => setTasksToDo(e.target.value)} />
+                 <input type="submit" value="submit" />
             <br />
             <br />
-            <button>Add Task</button>
+            {/* <button id="createTaskButton">Add Task</button> */}
         </form>
         
         </>
     )
 };
 
-export default TasksForm;
+export default TaskForm;

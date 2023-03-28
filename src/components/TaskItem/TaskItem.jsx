@@ -32,13 +32,15 @@ function TaskItem ({task, fetchTasksList}) {
 
    
     return(
+        <div className="tableOne" >
         <tbody key={task.id}>
             <tr style={{ backgroundColor: changeColor() }}>
                 <td>{task.task}</td>
-                <td><button onClick={ (event) => completeTask(event) }>{task.completed}</button></td>
+                <td><button onClick={ (event) => completeTask(event) }>{task.completed}Finished</button></td>
                 <td><button onClick={ (event) => removeTaskItem(event) }>Delete</button></td>
             </tr>
         </tbody>
+        </div>    
     
     )
 }

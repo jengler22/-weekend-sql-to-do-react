@@ -2,11 +2,11 @@
   text-align: center;
 }
 
-.App-header {
-  background-color: #222;
+.top-header {
+  background-color: grey;
   height: 70px;
   padding: 20px;
-  color: white;
+  color: whitesmoke;
 }
 
 .App-title {
@@ -21,3 +21,11 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+ 
+/* .tableOne {
+  justify-content: center;
+} */
+
+/* .taskTable {
+  justify-content: center;
+} */
