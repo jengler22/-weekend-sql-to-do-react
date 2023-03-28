@@ -12,7 +12,7 @@ This App allows the user to add a new task with a "Task submit button" to save i
 2. React
 3. PostgreSQL
 
-## Install
+
 ## Installation
 1. Create a database using PostgreSQL named `weekend-to-do-app`
 2. Create the table and insert the values as shown in database.sql
