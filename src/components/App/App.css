@@ -30,12 +30,21 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  
+ 
+
 }
 
 table {
-  width: 100%;
+  width: 30%;
+  
 }
+
+
+table, th, td {
+  border:5px solid;
+}
+
+tr:hover {background-color: gray;}
 
 /* .taskTable  {
   border: 2px solid gray;
